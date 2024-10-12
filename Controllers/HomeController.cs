@@ -1,3 +1,4 @@
+using DemoDLC.Data;
 using DemoDLC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -6,6 +7,7 @@ namespace DemoDLC.Controllers
 {
     public class HomeController : Controller
     {
+        DemoDlcContext db = new DemoDlcContext();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -15,7 +17,8 @@ namespace DemoDLC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var listProduct = db.Products.ToList();
+            return View(listProduct);
         }
 
         public IActionResult Privacy()
