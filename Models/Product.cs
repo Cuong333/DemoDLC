@@ -6,7 +6,6 @@ namespace DemoDLC.Models;
 public partial class Product
 {
     public string ProductId { get; set; } = null!;
-
     public string CategoryId { get; set; } = null!;
 
     public string ManufacturerId { get; set; } = null!;
@@ -15,7 +14,7 @@ public partial class Product
 
     public string Price { get; set; } = null!;
 
-    public string? Photo { get; set; }
+    public string? photo { get; set; }
 
     public string? Details { get; set; }
 

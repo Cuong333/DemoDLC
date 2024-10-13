@@ -14,17 +14,17 @@
         {
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <!-- Kiểm tra và hiển thị hình ảnh sản phẩm -->
-                        @if (!string.IsNullOrEmpty(item.Photo))
-                        {
-                            <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/" + item.Photo)" alt="@item.ProductName" style="height: 200px; object-fit: cover;" />
-                        }
-                        else
-                        {
-                            <!-- Hiển thị hình ảnh mặc định nếu không có ảnh sản phẩm -->
-                            <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/default-image.jpg")" alt="Default Image" style="height: 200px; object-fit: cover;" />
-                        }
+                   
+                    <!-- Kiểm tra và hiển thị hình ảnh sản phẩm -->
+                    @if (!string.IsNullOrEmpty(item.photo))
+                    {
+                        <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/" + item.photo)" alt="@item.ProductName" style="height: 200px; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <!-- Hiển thị hình ảnh mặc định nếu không có ảnh -->
+                        <img class="img-fluid w-100" src="~/ProductImages/default.jpg" alt="Sản phẩm không có ảnh" style="height: 200px; object-fit: cover;" />
+                    }
 
                         <!-- Các nút hành động -->
                         <div class="product-action">
@@ -44,8 +44,7 @@
                             <h5>@String.Format("{0:C}", item.Price)</h5>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>   
         }
     </div>
 </div>

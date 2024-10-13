@@ -20,7 +20,7 @@ namespace DemoDLC.Controllers
             var listProduct = db.Products.ToList();
             return View(listProduct);
         }
-
+       
         public IActionResult Privacy()
         {
             return View();

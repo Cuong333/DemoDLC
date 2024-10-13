@@ -275,7 +275,7 @@ public partial class DemoDlcContext : DbContext
             entity.Property(e => e.ManufacturerId)
                 .HasMaxLength(50)
                 .HasColumnName("manufacturerID");
-            entity.Property(e => e.Photo)
+            entity.Property(e => e.photo)
                 .HasMaxLength(50)
                 .HasColumnName("photo");
             entity.Property(e => e.Price)
