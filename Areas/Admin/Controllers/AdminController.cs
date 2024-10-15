@@ -55,7 +55,7 @@ namespace DemoDLC.Areas.Admin.Controllers
             return View(product);
         }
 
-        // Edit Product
+        // Edit Product - GET
         [Route("EditProduct")]
         [HttpGet]
         public IActionResult EditProduct(string ProductId)
@@ -74,6 +74,7 @@ namespace DemoDLC.Areas.Admin.Controllers
             return View(product);
         }
 
+        // Edit Product - POST
         [Route("EditProduct")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -81,12 +82,20 @@ namespace DemoDLC.Areas.Admin.Controllers
         {
             if (ModelState.IsValid != null)
             {
+                // Update the product in the database
                 db.Products.Update(product);
                 db.SaveChanges();
-                return RedirectToAction("ListProduct");
+
+                return RedirectToAction("ListProduct", "Admin");
             }
+
+            // Repopulate dropdowns in case of validation failure
+            ViewBag.CategoryId = new SelectList(db.Categories.ToList(), "CategoryId", "Name");
+            ViewBag.ManufacturerId = new SelectList(db.Manufacturers.ToList(), "ManufacturerId", "Name");
+
             return View(product);
         }
+
 
 
         // Delete Product
