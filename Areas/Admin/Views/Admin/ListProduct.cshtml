@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DemoDLC.Models.Product>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "ListProduct";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h1>List Product</h1>
+
+<p>
+    <a asp-action="AddProduct" class="btn btn-success">Add New Product</a>
+</p>
+<p>
+    @TempData["Message"]
+</p>
+<table class="table">
+    <thead>
+        <tr class="table-warning">
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photo)
+            </th>
+          @*   <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th> *@
+        <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th> 
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="table-success">
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+                <td>
+                    @if (!String.IsNullOrEmpty(item.photo))
+                    {
+                        <img src="@Url.Content("../ProductImages/keyboard/" + item.photo)" alt="Hình sản phẩm" style="margin-left:30px; max-width: 300px; max-height: 300px;" />
+                    }
+                    else
+                    {
+                        <span>Không có hình ảnh</span>
+                    }
+                </td>
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td> *@ 
+                <td>
+                    @if (item.Category != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    }
+                    else
+                    {
+                        <span>No Category</span>
+                    }
+                </td>
+                <td>
+                    @if (item.Manufacturer != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+                    }
+                    else
+                    {
+                        <span>No Manufacturer</span>
+                    }
+                </td>
+
+            <td>
+                    <a asp-action="EditProduct" class="btn btn-success" asp-route-ProductId="@item.ProductId">Edit</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-ProductId="@item.ProductId">Details</a> |
+                    <a value="Delete" onclick="return confirm('Are you sure you want to delete the product @item.ProductName?')" asp-action="DeleteProduct" class="btn btn-danger" asp-route-ProductId="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

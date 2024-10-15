@@ -1,10 +1,12 @@
-﻿﻿@using DemoDLC.Models
+﻿@using DemoDLC.Models
 @using DemoDLC.Data
 @{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/LayoutDLC.cshtml";
 }
+
 @model List<Product>
+
 <div class="container-fluid pt-5 pb-3">
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
         <span class="bg-secondary pr-3">Featured Products</span>
@@ -13,40 +15,37 @@
         @foreach (var item in Model)
         {
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
-                   
-                    <!-- Kiểm tra và hiển thị hình ảnh sản phẩm -->
+                <div class="product-item bg-light mb-4" data-setbg="@Url.Content("../ProductImages/" + item.photo)">
+
+                    <!-- Hiển thị hình ảnh sản phẩm -->
                     @if (!string.IsNullOrEmpty(item.photo))
                     {
-                        <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/" + item.photo)" alt="@item.ProductName" style="height: 200px; object-fit: cover;" />
+                        <img class="img-fluid w-100" src="@Url.Content("../ProductImages/" + item.photo)" alt="@item.ProductName" style="height: 200px; object-fit: cover;" />
                     }
                     else
                     {
                         <!-- Hiển thị hình ảnh mặc định nếu không có ảnh -->
-                        <img class="img-fluid w-100" src="~/ProductImages/default.jpg" alt="Sản phẩm không có ảnh" style="height: 200px; object-fit: cover;" />
+                        <img class="img-fluid w-100" src="@Url.Content("../ProductImages/default.jpg")" alt="Sản phẩm không có ảnh" style="height: 200px; object-fit: cover;" />
                     }
-
-                        <!-- Các nút hành động -->
-                        <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                        </div>
+                    <div class="product-action">
+                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
                     </div>
                     <div class="text-center py-4">
                         <!-- Hiển thị tên sản phẩm -->
                         <a class="h6 text-decoration-none text-truncate" href="">
                             @(string.IsNullOrEmpty(item.ProductName) ? "Tên sản phẩm không có" : item.ProductName)
                         </a>
+
+                        <!-- Hiển thị giá sản phẩm -->
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <!-- Hiển thị giá sản phẩm -->
                             <h5>@String.Format("{0:C}", item.Price)</h5>
                         </div>
                     </div>
-                </div>   
+                </div>
+            </div>
         }
     </div>
 </div>
-
-    

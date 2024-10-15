@@ -1,34 +1,13 @@
+'use strict'
 var gulp = require('gulp');
-var path = require('path');
-var sass = require('gulp-sass')(require('sass'));
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
-var open = require('gulp-open');
+var requireDir = require('require-dir');
+requireDir('gulp-tasks');
 
-var Paths = {
-  HERE: './',
-  DIST: 'dist/',
-  CSS: './assets/css/',
-  SCSS_TOOLKIT_SOURCES: './assets/scss/argon-dashboard.scss',
-  SCSS: './assets/scss/**/**'
+
+gulp.paths = {
+    dist: 'dist',
 };
 
-gulp.task('compile-scss', function() {
-  return gulp.src(Paths.SCSS_TOOLKIT_SOURCES)
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(sourcemaps.write(Paths.HERE))
-    .pipe(gulp.dest(Paths.CSS));
-});
+var paths = gulp.paths;
 
-gulp.task('watch', function() {
-  gulp.watch(Paths.SCSS, gulp.series('compile-scss'));
-});
-
-gulp.task('open', function() {
-  gulp.src('pages/dashboard.html')
-    .pipe(open());
-});
-
-gulp.task('open-app', gulp.parallel('open', 'watch'));
+gulp.task('default', gulp.series('serve'));
