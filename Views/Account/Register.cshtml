@@ -1,0 +1,128 @@
+﻿@using DemoDLC.Models
+@model Customer
+
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc
+@using System.Threading.Tasks
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = null;
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LayoutLogin/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LayoutLogin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LayoutLogin/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LayoutLogin/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LayoutLogin/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LayoutLogin/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LayoutLogin/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LayoutLogin/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LayoutLogin/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/LayoutLogin/css/main.css">
+    <!--===============================================================================================-->
+    </head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('LayoutDLC/images/bg-01.jpg');">
+            <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                {
+                    <span class="login100-form-title p-b-53">
+                        Create Your Account
+                    </span>
+
+                    <div class="p-t-31 p-b-9">
+                        <span class="txt1">Username</span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Username is required">
+                        @Html.TextBoxFor(model => model.Username, new { @class = "input100", placeholder = "Username", required = "required" })
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="p-t-13 p-b-9">
+                        <span class="txt1">Email</span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Email is required">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "input100", placeholder = "Email", required = "required" })
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="p-t-13 p-b-9">
+                     <span class="txt1">Phone Number</span> <!-- Thêm phần cho số điện thoại -->
+                        </div>
+                    <div class="wrap-input100 validate-input" data-validate="Phone number is required">
+                       @Html.TextBoxFor(model => model.Phonenumber, new { @class = "input100", placeholder = "Phone Number", required = "required" }) <!-- Bind đến thuộc tính PhoneNumber -->
+                          <span class="focus-input100"></span>
+                    </div>
+                    <div class="p-t-13 p-b-9">
+                        <span class="txt1">Password</span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        @Html.PasswordFor(model => model.Password, new { @class = "input100", placeholder = "Password", required = "required" })
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="p-t-13 p-b-9">
+                        <span class="txt1">Confirm Password</span> <!-- Thêm phần xác nhận mật khẩu -->
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Confirm password is required">
+                        @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "input100", placeholder = "Confirm Password", required = "required" }) <!-- Bind đến thuộc tính ConfirmPassword -->
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn m-t-17">
+                        <button type="submit" class="login100-form-btn">
+                            Sign Up
+                        </button>
+                    </div>
+
+                    <div class="w-full text-center p-t-55">
+                        <span class="txt2">Already a member?</span>
+                        <a href="/Account/Login" class="txt2 bo1">Sign in now</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div id="dropDownSelect1"></div>
+
+        <!--===============================================================================================-->
+        <script src="~/LayoutLogin/vendor/jquery/jquery-3.2.1.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/LayoutLogin/vendor/animsition/js/animsition.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/LayoutLogin/vendor/bootstrap/js/popper.js"></script>
+        <script src="~/LayoutLogin/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/LayoutLogin/vendor/select2/select2.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/LayoutLogin/vendor/daterangepicker/moment.min.js"></script>
+        <script src="~/LayoutLogin/vendor/daterangepicker/daterangepicker.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/LayoutLogin/vendor/countdowntime/countdowntime.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/LayoutLogin/main.js"></script>
+</body>
+</html>

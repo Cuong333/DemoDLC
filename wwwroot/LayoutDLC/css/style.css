@@ -5834,35 +5834,24 @@ a.close.disabled {
 }
 
 .carousel {
-  position: relative;
+    position: relative;
 }
 
-.carousel.pointer-event {
-  touch-action: pan-y;
-}
-
-.carousel-inner {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-inner::after {
-  display: block;
-  clear: both;
-  content: "";
-}
-
-    .carousel-item img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Đảm bảo hình ảnh lấp đầy khung mà không bị méo */
-        object-position: center; /* Căn giữa hình ảnh */
+    .carousel.pointer-event {
+        touch-action: pan-y;
     }
 
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+    .carousel-inner::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
 
 .carousel-item {
     position: relative;
@@ -5875,7 +5864,28 @@ a.close.disabled {
     height: 430px;
     background-size: cover;
     background-position: center;
+    background-color: #f0f0f0; /* Giữ nguyên màu nền */
 }
+
+    .carousel-item img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Đảm bảo hình ảnh lấp đầy khung mà không bị méo */
+        object-position: center; /* Căn giữa hình ảnh */
+        z-index: 1; /* Hình ảnh nổi lên trên màu nền */
+    }
+
+.carousel-caption {
+    z-index: 2; /* Nội dung hiển thị trên hình ảnh */
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5); /* Nền trong suốt cho chú thích */
+    padding: 20px;
+    border-radius: 10px;
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {

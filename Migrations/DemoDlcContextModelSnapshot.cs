@@ -132,6 +132,13 @@ namespace DemoDLC.Migrations
                         .HasColumnType("date")
                         .HasColumnName("birthday");
 
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CustomerId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -178,6 +185,8 @@ namespace DemoDLC.Migrations
                         .HasColumnName("username");
 
                     b.HasKey("CustomerId");
+
+                    b.HasIndex("CustomerId1");
 
                     b.ToTable("Customer", (string)null);
                 });
@@ -379,10 +388,9 @@ namespace DemoDLC.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("productName");
 
-                    b.Property<byte[]>("productImage")
-                        .IsRequired()
+                    b.Property<string>("photo")
                         .HasMaxLength(50)
-                        .HasColumnType("varbinary(50)")
+                        .HasColumnType("nvarchar(50)")
                         .HasColumnName("photo");
 
                     b.HasKey("ProductId");
@@ -425,6 +433,13 @@ namespace DemoDLC.Migrations
                         .HasConstraintName("FK_Admin_Role");
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("DemoDLC.Models.Customer", b =>
+                {
+                    b.HasOne("DemoDLC.Models.Customer", null)
+                        .WithMany("Customers")
+                        .HasForeignKey("CustomerId1");
                 });
 
             modelBuilder.Entity("DemoDLC.Models.Feedback", b =>
@@ -513,6 +528,8 @@ namespace DemoDLC.Migrations
 
             modelBuilder.Entity("DemoDLC.Models.Customer", b =>
                 {
+                    b.Navigation("Customers");
+
                     b.Navigation("Orders");
                 });
 

@@ -1,9 +1,15 @@
+using DemoDLC.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor(); // Register IHttpContextAccessor
 builder.Services.AddSession();
+
+builder.Services.AddDbContext<DemoDlcContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

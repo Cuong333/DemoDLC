@@ -20,13 +20,15 @@
                     <!-- Hiển thị hình ảnh sản phẩm -->
                     @if (!string.IsNullOrEmpty(item.photo))
                     {
-                        <img class="img-fluid w-100" src="@Url.Content("../ProductImages/" + item.photo)" alt="@item.ProductName" style="height: 200px; object-fit: cover;" />
+                        <!-- Display the product image -->
+                        <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/" + item.photo)" alt="@item.ProductName" style="height: 200px; object-fit: cover;" />
                     }
                     else
                     {
-                        <!-- Hiển thị hình ảnh mặc định nếu không có ảnh -->
-                        <img class="img-fluid w-100" src="@Url.Content("../ProductImages/default.jpg")" alt="Sản phẩm không có ảnh" style="height: 200px; object-fit: cover;" />
+                        <!-- Display a default image if no image is available -->
+                        <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/default.jpg")" alt="Sản phẩm không có ảnh" style="height: 200px; object-fit: cover;" />
                     }
+
                     <div class="product-action">
                         <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                         <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
