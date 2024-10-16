@@ -9,7 +9,7 @@ namespace DemoDLC.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin")]
-    [Route("admin/admin")]
+    //[Route("admin/admin")]
     public class AdminController : Controller
     {
         DemoDlcContext db =new DemoDlcContext();
