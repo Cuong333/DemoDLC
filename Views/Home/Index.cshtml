@@ -15,18 +15,18 @@
         @foreach (var item in Model)
         {
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4" data-setbg="@Url.Content("../ProductImages/" + item.photo)">
+                <div class="product-item bg-light mb-4" data-setbg="@Url.Content("../ProductImages/img/" + item.photo)">
 
                     <!-- Hiển thị hình ảnh sản phẩm -->
                     @if (!string.IsNullOrEmpty(item.photo))
                     {
                         <!-- Display the product image -->
-                        <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/" + item.photo)" alt="@item.ProductName" style="height: 200px; object-fit: cover;" />
+                        <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/img/" + item.photo)" alt="@item.ProductName" style="height: 200px; object-fit: cover;" />
                     }
                     else
                     {
                         <!-- Display a default image if no image is available -->
-                        <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/default.jpg")" alt="Sản phẩm không có ảnh" style="height: 200px; object-fit: cover;" />
+                        <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/img/default.jpg")" alt="Sản phẩm không có ảnh" style="height: 200px; object-fit: cover;" />
                     }
 
                     <div class="product-action">
