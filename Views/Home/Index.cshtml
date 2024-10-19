@@ -1,4 +1,5 @@
-﻿@using DemoDLC.Models
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using DemoDLC.Models
 @using DemoDLC.Data
 @{
     ViewData["Title"] = "Home Page";
@@ -15,33 +16,39 @@
         @foreach (var item in Model)
         {
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-              <div class="product-item bg-light mb-4" data-setbg="@Url.Content("~/ProductImages/img/" + item.photo)">
-
-                    <!-- Hiển thị hình ảnh sản phẩm -->
-                    @if (!string.IsNullOrEmpty(item.photo))
-                    {
-                        <!-- Display the product image -->
-                        <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/img/" + item.photo)" alt="@item.ProductName" style="height: 200px; object-fit: cover;" />
-                    }
-                    else
-                    {
-                        <!-- Display a default image if no image is available -->
-                        <img class="img-fluid w-100" src="@Url.Content("~/ProductImages/img/default.jpg")" alt="Sản phẩm không có ảnh" style="height: 200px; object-fit: cover;" />
-                    }
+                <div class="product-item bg-light mb-4">
+                    <!-- Display product image -->
+                    <div class="position-relative overflow-hidden">
+                        @if (!string.IsNullOrEmpty(item.photo))
+                        {
+                            <img class="img-fluid w-100"
+                                 src="@Url.Content("~/ProductImages/img/" + item.photo)?v=@DateTime.Now.Ticks"
+                                 alt="@item.ProductName"
+                                 style="height: 200px; object-fit: cover;" />
+                        }
+                        else
+                        {
+                            <img class="img-fluid w-100"
+                                 src="@Url.Content("~/ProductImages/img/default.jpg")"
+                                 alt="No image available"
+                                 style="height: 200px; object-fit: cover;" />
+                        }
+                    </div>
 
                     <div class="product-action">
-                        <a class="btn btn-outline-dark btn-square" asp-controller="Cart" ><i class="fa fa-shopping-cart"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-                        <a class="btn btn-outline-dark btn-square" asp-controller="Product" asp-action="ProductDetail" ><i class="fa fa-search"></i></a>
+                        <a class="btn btn-outline-dark btn-square" asp-controller="Cart"><i class="fa fa-shopping-cart"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href="#"><i class="far fa-heart"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
+                        <a class="btn btn-outline-dark btn-square"><i class="fa fa-search"></i></a>
                     </div>
+
                     <div class="text-center py-4">
-                        <!-- Hiển thị tên sản phẩm -->
-                        <a class="h6 text-decoration-none text-truncate" href="">
-                            @(string.IsNullOrEmpty(item.ProductName) ? "Tên sản phẩm không có" : item.ProductName)
+                        <!-- Display product name -->
+                        <a class="h6 text-decoration-none text-truncate" href="#">
+                            @(string.IsNullOrEmpty(item.ProductName) ? "No product name" : item.ProductName)
                         </a>
 
-                        <!-- Hiển thị giá sản phẩm -->
+                        <!-- Display product price -->
                         <div class="d-flex align-items-center justify-content-center mt-2">
                             <h5>@String.Format("{0:C}", item.Price)</h5>
                         </div>

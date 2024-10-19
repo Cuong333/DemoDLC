@@ -1,19 +1,18 @@
-﻿﻿<!DOCTYPE html>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers ﻿
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <title>DLC Shop</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
     <link href="LayoutDLC/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -100,8 +99,6 @@
         </div>
     </div>
     <!-- Topbar End -->
-
- 
     <!-- Navbar Start -->
     <div class="container-fluid bg-dark mb-30">
         <div class="row px-xl-5">
@@ -120,7 +117,8 @@
                                 <a href="" class="dropdown-item">Panasonic</a>
                             </div>
                         </div>
-                        <div class="nav-item dropdown dropright">
+                    </div>
+                    <div class="nav-item dropdown dropright">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Laptop <i class="fa fa-angle-right float-right mt-1"></i></a>
                         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
                             <a href="" class="dropdown-item">Asus</a>
@@ -128,7 +126,8 @@
                             <a href="" class="dropdown-item">HP</a>
                             <a href="" class="dropdown-item">MSI</a>
                         </div>
-                         <div class="nav-item dropdown dropright">
+                    </div>
+                    <div class="nav-item dropdown dropright">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Chuột-Bàn Phím <i class="fa fa-angle-right float-right mt-1"></i></a>
                         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
                             <a href="" class="dropdown-item">Logitech</a>
@@ -136,14 +135,14 @@
                             <a href="" class="dropdown-item">Corsair</a>
                             <a href="" class="dropdown-item">Asus</a>
                         </div>
-                            <a href="" class="nav-item nav-link">Linh kiện khác</a>
-                           
+                        <a href="" class="nav-item nav-link">Linh kiện khác</a>
+
                     </div>
                 </nav>
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
-                    <a href="~/Views/Home/Shop.cshtml" class="text-decoration-none d-block d-lg-none">
+                    <a href="../Views/Home/Shop.cshtml" class="text-decoration-none d-block d-lg-none">
                         <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
                         <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
                     </a>
@@ -152,13 +151,13 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a asp-controller="Home"  class="nav-item nav-link active">Home</a>
-                            <a asp-controller="Product"  class="nav-item nav-link">Shop</a>
-                           @*  <a asp-controller="Product" asp-action="ProductDetail" class="nav-item nav-link">Shop Detail</a> *@
+                            <a asp-controller="Home" class="nav-item nav-link active">Home</a>
+                            <a asp-controller="Product" class="nav-item nav-link">Shop</a>
+                            @*  <a asp-controller="Product" asp-action="ProductDetail" class="nav-item nav-link">Shop Detail</a> *@
                             <div class="nav-item dropdown">
-                                <a   class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a asp-controller ="Cart"  class="dropdown-item"> Shopping Cart</a>
+                                    <a asp-controller="Cart" class="dropdown-item"> Shopping Cart</a>
                                     <a asp-controller="Checkout" class="dropdown-item">Checkout</a>
 
                                 </div>
@@ -179,13 +178,11 @@
                 </nav>
             </div>
         </div>
-    </div> 
+    </div>
     </div>
     </div>
     </div>
     <!-- Navbar End -->
-
-
     <!-- Carousel Start -->
     <div class="container-fluid mb-3">
         <div class="row px-xl-5">
@@ -205,13 +202,11 @@
                         <div class="carousel-item position-relative" style="height: 430px;">
                             <img class="position-absolute w-100 h-100" src="LayoutDLC/img/banner/laptopbanner.jpeg" style="object-fit: contain;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                                
                             </div>
                         </div>
                         <div class="carousel-item position-relative" style="height: 430px;">
                             <img class="position-absolute w-100 h-100" src="LayoutDLC/img/Banner/gaminggearbanner.jpeg" style="object-fit: contain;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                              
                             </div>
                         </div>
                     </div>
@@ -219,7 +214,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="~/productimages/img/laptop4.jpg"  alt="">
+                    <img class="img-fluid" src="../productimages/img/laptop4.jpg" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
@@ -227,7 +222,7 @@
                     </div>
                 </div>
                 <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="~/productimages/img/laptop3.jpg" alt="">
+                    <img class="img-fluid" src="../productimages/img/laptop3.jpg" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
@@ -238,9 +233,7 @@
         </div>
     </div>
     <!-- Carousel End -->
-
-
-  <!-- Featured Start -->
+    <!-- Featured Start -->
     <div class="container-fluid pt-5">
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
@@ -269,9 +262,7 @@
             </div>
         </div>
     </div>
-    <!-- Featured End --> 
-
-
+    <!-- Featured End -->
     <!-- Categories Start -->
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
@@ -282,7 +273,7 @@
                 <a class="text-decoration-none" href="">
                     <div class="cat-item d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                            <img class="img-fluid" src="~/productimages/img/manhinh1.jpg" alt="Màn hình">
+                            <img class="img-fluid" src="../productimages/img/manhinh1.jpg" alt="Màn hình">
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Màn hình</h6>
@@ -295,7 +286,7 @@
                 <a class="text-decoration-none" href="">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                            <img class="img-fluid" src="~/productimages/img/laptop7.jpg"  alt="Lapop">
+                            <img class="img-fluid" src="../productimages/img/laptop7.jpg" alt="Lapop">
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Laptop</h6>
@@ -308,7 +299,7 @@
                 <a class="text-decoration-none" href="">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                            <img class="img-fluid" src="~/productimages/img/mouse1.jpg" alt="Mouse">
+                            <img class="img-fluid" src="../productimages/img/mouse1.jpg" alt="Mouse">
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Mouse</h6>
@@ -321,7 +312,7 @@
                 <a class="text-decoration-none" href="">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                            <img class="img-fluid" src="~/productimages/img/keyboard1.jpeg" alt="Keyboard">
+                            <img class="img-fluid" src="../productimages/img/keyboard1.jpeg" alt="Keyboard">
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Keyboard</h6>
@@ -333,21 +324,19 @@
         </div>
     </div>
     <!-- Categories End -->
-
- 
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">
         <!-- Phần Featured Products -->
-      <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">        
-            <span class="bg-secondary pr-3">@* Featured Products *@</span>
-        </h2> 
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+            <span class="bg-secondary pr-3"></span>
+        </h2>
         <div class="row px-xl-5">
             @RenderBody()
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4">
-                   
+
                     <div class="product-img position-relative overflow-hidden">
-                        <!-- Nội dung sản phẩm sẽ hiển thị ở đây -->  
+                        <!-- Nội dung sản phẩm sẽ hiển thị ở đây -->
                     </div>
                 </div>
             </div>
@@ -355,36 +344,35 @@
     </div>
 
 
-    
-    <!-- Products End -->
 
+    <!-- Products End -->
     <!-- Vendor Start -->
- <div class="container-fluid py-5">
+    <div class="container-fluid py-5">
         <div class="row px-xl-5">
             <div class="col">
                 <div class="owl-carousel vendor-carousel">
                     <div class="bg-light p-4">
-                        <img src="~/manfacturelogo/img/acer.jpg" alt="Logo">
+                        <img src="../manfacturelogo/img/acer.jpg" alt="Logo">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="~/manfacturelogo/img/asus.jpg" alt="Logo">
+                        <img src="../manfacturelogo/img/asus.jpg" alt="Logo">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="~/manfacturelogo/img/corsair.png" alt="Logo">
+                        <img src="../manfacturelogo/img/corsair.png" alt="Logo">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="~/manfacturelogo/img/fuhlen.png" alt="Logo">
+                        <img src="../manfacturelogo/img/fuhlen.png" alt="Logo">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="~/manfacturelogo/img/msi.png" alt="Logo">
+                        <img src="../manfacturelogo/img/msi.png" alt="Logo">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="~/manfacturelogo/img/samsung.png" alt="Logo">
-                    </div>           
+                        <img src="../manfacturelogo/img/samsung.png" alt="Logo">
+                    </div>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- Vendor End -->
     <style>
         .vendor-carousel .bg-light {
@@ -395,11 +383,11 @@
         }
 
             .vendor-carousel .bg-light img {
-                max-width: 100%; 
-                max-height: 100%; 
-                object-fit: contain; 
-                width: auto; 
-                height: auto; 
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                width: auto;
+                height: auto;
             }
     </style>
 
@@ -425,7 +413,7 @@
                             <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
                             <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
                         </div>
-                    </div>        
+                    </div>
                     <div class="col-md-4 mb-5">
                         <h5 class="text-secondary text-uppercase mb-4">Newsletter</h5>
                         <p>Duo stet tempor ipsum sit amet magna ipsum tempor est</p>
@@ -448,11 +436,9 @@
                 </div>
             </div>
         </div>
-   
-        </div> 
+
+    </div>
     <!-- Footer End -->
-
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
