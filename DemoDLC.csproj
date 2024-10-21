@@ -20,11 +20,4 @@
     <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Update="wwwroot\ProductImages\img\default.jpg">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>
